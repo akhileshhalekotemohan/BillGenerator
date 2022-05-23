@@ -9,9 +9,7 @@ public class User {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter item details in the format below / type 'quit' to exit");
         System.out.println("<quantity> <imported(optional as this appliers only to imported items)> <description> at <price>");
-        System.out.println("Few Examples for your reference");
-        System.out.println("1 imported box of chocolates at 10.00");
-        System.out.println("10 books at 12.49");
+        System.out.println("Ex: '1 imported box of chocolates at 10.00'");
         System.out.println("Please type 'done' to stop adding new items and print bill with sales tax!");
         userInput = scanner.nextLine();
         if(userInput.equalsIgnoreCase("quit")){
@@ -20,29 +18,35 @@ public class User {
         }
 
         while(true){
-            userInput = scanner.nextLine();
+            //System.out.println("working with the input line :"+userInput);
             if(userInput.equalsIgnoreCase("done")){
                 break;
             }
-            item = FetchItemDetails.scrapeDetails(userInput);
+            item = Utility.scrapeDetails
+                    (userInput);
             if(item != null){
                 queue.add(item);
             }
+            userInput = scanner.nextLine();
         }
     }
 
+    /**
+     * This method invokes sales tax calculation method for all item objects in the queue
+     */
     public static void calculateSalesTax(){
+        //System.out.println("Calculating sales tax");
         for(Item item:queue){
+            //System.out.println("Calculating sales tax for an item");
             item.calculateTotalSalesTax();
         }
     }
 
+    /**
+     * This method prints itemized bill
+     */
     public static void printBill(){
         Item item;
-        String itemDescription;
-        double itemPrice;
-        long itemQuantity;
-        long totalBillAmount = 0;
         if(queue.isEmpty()){
             System.out.println("No items have been added so quitting. Bye!");
             return;
@@ -52,14 +56,19 @@ public class User {
             if(item == null){
                 break;
             }
-            itemDescription = item.getItemDescription();
-            itemQuantity = item.getItemQuantity();
-            itemPrice = item.getItemPrice() + item.getTotalTax();
-            totalBillAmount += itemPrice;
-            System.out.println(itemQuantity + " "+ itemDescription + ": " + itemPrice);
+            item.printDetailsForTheItem();
         }
-        System.out.println("Sales Taxes :"+Item.totalTaxForTheBill);
-        System.out.println("Total: "+totalBillAmount);
+        System.out.println("Sales Taxes :"+Utility.formatNumber(Item.totalTaxForTheBill));
+        System.out.println("Total: "+Utility.formatNumber(Item.totalAmountOfTheBill));
+
+        //Printing unparsed strings
+        if(!Utility.errorMessages.isEmpty()){
+            System.out.println("");
+            System.out.println("These strings were not parsed");
+            for(String s:Utility.errorMessages.split("\n")){
+                System.out.println(s);
+            }
+        }
     }
 
 }
