@@ -46,9 +46,11 @@ Write an application that prints out the receipt details for these shopping bask
 > Total: 74.68
 
 ### Run The Project
-####Step1
+#### Step1
 To build the project issue this command. This will generate the executable
 > mvn clean install
+
+
 ####Step2
 To execute the project
 >java -jar target/BillGenerator-1.0-SNAPSHOT.jar 
