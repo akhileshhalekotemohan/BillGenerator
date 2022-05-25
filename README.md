@@ -59,26 +59,26 @@ To execute the project
 You should see output similar to this
 
 >Please enter item details / type 'quit' to exit </br>
->Format: <quantity> <imported(optional)> <description> at <price>
->Ex: '1 imported box of chocolates at 10.00'
->Please type 'done' to stop adding new items and print bill with sales tax!
+>Format: <quantity> <imported(optional)> <description> at <price> </br>
+>Ex: '1 imported box of chocolates at 10.00' </br>
+>Please type 'done' to stop adding new items and print bill with sales tax! </br>
 
 Please enter items similar to this. Please note that each item should be entered in a seperate line as shown below. After you are done entering please type 'done'.
->1 book at 12.49
->1 music CD at 14.99
->1 chocolate bar at 0.85
->done
+>1 book at 12.49 </br>
+>1 music CD at 14.99 </br>
+>1 chocolate bar at 0.85 </br>
+>done </br>
 
 #### Step4
 Now you will see bill details as shown below
 
->--------------- Final Bill ----------------
->1 book: 12.49
->1 music CD: 16.49
->1 chocolate bar: 0.85
->Sales Taxes :1.50
->Total: 29.83
->-------------------------------------------
+> --------------- Final Bill ---------------- </br>
+>1 book: 12.49 </br>
+>1 music CD: 16.49 </br>
+>1 chocolate bar: 0.85 </br>
+>Sales Taxes :1.50 </br>
+>Total: 29.83 </br>
+> ------------------------------------------- </br>
 
 
 
