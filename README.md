@@ -51,14 +51,14 @@ To build the project issue this command. This will generate the executable
 > mvn clean install
 
 
-####Step2
+#### Step2
 To execute the project
 >java -jar target/BillGenerator-1.0-SNAPSHOT.jar 
 
-####Step3
+#### Step3
 You should see output similar to this
 
->Please enter item details / type 'quit' to exit
+>Please enter item details / type 'quit' to exit </br>
 >Format: <quantity> <imported(optional)> <description> at <price>
 >Ex: '1 imported box of chocolates at 10.00'
 >Please type 'done' to stop adding new items and print bill with sales tax!
@@ -69,7 +69,7 @@ Please enter items similar to this. Please note that each item should be entered
 >1 chocolate bar at 0.85
 >done
 
-####Step4
+#### Step4
 Now you will see bill details as shown below
 
 >--------------- Final Bill ----------------
