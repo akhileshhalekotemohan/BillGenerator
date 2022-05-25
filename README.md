@@ -45,3 +45,37 @@ Write an application that prints out the receipt details for these shopping bask
 > Sales Taxes: 6.70  
 > Total: 74.68
 
+### Run The Project
+####Step1
+To build the project issue this command. This will generate the executable
+> mvn clean install
+####Step2
+To execute the project
+>java -jar target/BillGenerator-1.0-SNAPSHOT.jar 
+####Step3
+You should see output similar to this
+>Please enter item details / type 'quit' to exit
+>Format: <quantity> <imported(optional)> <description> at <price>
+>Ex: '1 imported box of chocolates at 10.00'
+>Please type 'done' to stop adding new items and print bill with sales tax!
+Please enter items similar to this. Please note that each item should be entered in a seperate line as shown below. After you are done entering please type 'done'.
+>1 book at 12.49
+>1 music CD at 14.99
+>1 chocolate bar at 0.85
+>done
+####Step4
+Now you will see bill details as shown below
+>--------------- Final Bill ----------------
+>1 book: 12.49
+>1 music CD: 16.49
+>1 chocolate bar: 0.85
+>Sales Taxes :1.50
+>Total: 29.83
+>-------------------------------------------
+
+
+
+
+
+
+
