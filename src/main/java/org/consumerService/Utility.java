@@ -1,4 +1,4 @@
-package consumer_service;
+package org.consumerService;
 import java.text.DecimalFormat;
 import java.util.Set;
 
@@ -49,7 +49,6 @@ public class Utility {
         return null;
     }
 
-
     /**
      * This method checks whether description contains regex string or pattern.
      * @param regex - either regex or string
@@ -69,19 +68,15 @@ public class Utility {
         return isPresent("imported",description);
     }
 
-
     /**
      * This method checks if the item is exempted from tax.
      * @param descriptionString - String array
      * @return true if it is present in the itemsExemptedList else false
      */
     public static boolean isItemExemptedFromTax(String[] descriptionString){
-        //String[] wordsInDescription = description.split(" ");
-        //System.out.println("Checking if the item is exempted from tax");
+        //Loop over this string array to check if list contains any word in the string
         for (String s : descriptionString) {
-            //System.out.println("Item name "+s);
             if (itemsExemptedList.contains(s) || itemsExemptedList.contains(s+"s")) {
-                //System.out.println("Yes this is exempted");
                 return true;
             }
         }
@@ -94,6 +89,7 @@ public class Utility {
      * @return - altered string without unwanted substrings
      */
     public static String cleanString(String string){
+        //replaces ' at' and ' imported' from the description
         string = string.replace(" at","");
         string = string.replace(" imported","");
         string = string.trim();
@@ -101,11 +97,10 @@ public class Utility {
     }
 
     /**
-     * This method formats the number passed in the format ##0.00
+     * This method formats the number required format and returns it
      * @param value - number we want to format
-     * @return - formatted number
+     * @return - formatted number but type will be changed to string
      */
-
     public static String formatNumber(double value){
         DecimalFormat decimalFormat = new DecimalFormat("##0.00");
         return decimalFormat.format(value);

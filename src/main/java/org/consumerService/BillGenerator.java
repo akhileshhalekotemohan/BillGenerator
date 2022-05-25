@@ -1,4 +1,4 @@
-package consumer_service;
+package org.consumerService;
 
 public class BillGenerator {
 

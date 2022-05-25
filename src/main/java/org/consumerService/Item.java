@@ -1,4 +1,5 @@
-package consumer_service;
+package org.consumerService;
+
 public class Item {
     //class variables to keep track of totalTaxForTheBill and totalAmountOfTheBill
     public static double totalTaxForTheBill;
@@ -61,6 +62,7 @@ public class Item {
     public double getTotalTax() {
         return totalTax;
     }
+
     public double getTotalAmountOfTheItemWithTax(){
         return totalAmountOfTheItemWithTax;
     }
@@ -77,6 +79,7 @@ public class Item {
     public void setTotalTax(double totalTax) {
         this.totalTax = totalTax;
     }
+
     public void setTotalAmountOfTheItemWithTax(double totalAmountOfTheItemWithTax){
         this.totalAmountOfTheItemWithTax = totalAmountOfTheItemWithTax;
     }
@@ -100,11 +103,9 @@ public class Item {
         //Multiply it with quantity to get total tax for all items
         totalTax =  getItemQuantity() * (getSalesTax() + getImportTax());
         setTotalTax(totalTax);
-
         //Get Total Amount
         finalPrice = getTotalTax() + getItemPrice();
         setTotalAmountOfTheItemWithTax(finalPrice);
-
         //Update the receipt
         totalTaxForTheBill += getTotalTax();
         totalAmountOfTheBill += getTotalAmountOfTheItemWithTax();
@@ -148,7 +149,6 @@ public class Item {
         String itemDetailsToPrint;
         //Format total amount of the bill to 00.00
         String totalAmount = Utility.formatNumber(getTotalAmountOfTheItemWithTax());
-
         //print the details of item object in the format <quantity><description>:<totalAmount>
         if(isImported()){
             itemDetailsToPrint = getItemQuantity() + " imported " + getItemDescription() + ": " + totalAmount;
